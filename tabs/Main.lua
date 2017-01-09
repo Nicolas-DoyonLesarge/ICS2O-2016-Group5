@@ -19,6 +19,7 @@ DEBUG_GAMECENTER = true
 
 -- Use this function to perform your initial setup
 function setup()
+    
     -- set up display options
     supportedOrientations(LANDSCAPE_ANY)
     displayMode(FULLSCREEN)
@@ -27,9 +28,35 @@ function setup()
     noStroke()
     pushStyle()    
     
+    world1List = {}
+    world2List = {}
+    
+    -- All words in world 1
+    
+    world1List["word1"] = "thanksgiving" 
+    world1List["image1"] = SpriteObject("Cargo Bot:Step Button", vec2(WIDTH/4, HEIGHT/4))
+    world1List["word2"] = "homework"
+    world1List["word3"] = "popcorn"
+    world1List["word4"] = "soundtrack"
+    world1List["word5"] = "notebook"
+    world1List["word6"] = "bedroom"
+    world1List["word7"] = "everybody"
+    world1List["word8"] = "football"
+    world1List["word9"] = "basketball"
+    world1List["word10"] = "chalkboard"
+    
+    -- All words in world 2
+    world2List["word1"] = "backpack" 
+    world2List["word4"] = "pirate" 
+    world2List["word5"] = "tablet" 
+    
     -- create the scenes
     Scene("companyLogoScene", CompanyLogoScene)
     Scene("gameLogoScene", GameLogoScene)
+    Scene("mainMenu", MainMenu)
+    Scene("worldSelect", WorldSelect)
+    Scene("levelsWorld1", LevelsWorld1)
+    Scene("levelsWorld2", LevelsWorld2)
     
     Scene.Change("companyLogoScene")
 end

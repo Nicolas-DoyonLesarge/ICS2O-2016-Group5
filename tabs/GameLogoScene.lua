@@ -10,19 +10,19 @@
 GameLogoScene = class()
 
 -- local variables to this scene
-
+local startTime
 
 -- Use this function to perform your initial setup for this scene
 function GameLogoScene:init()
     -- set up display options
-    supportedOrientations(LANDSCAPE_ANY)
+    
     noFill()
     noSmooth()
     noStroke()
     pushStyle()  
     
     -- scene setup code here
-    
+    startTime = ElapsedTime
 end
 
 function GameLogoScene:draw()
@@ -32,6 +32,9 @@ function GameLogoScene:draw()
     
     -- Do your drawing here
     sprite("Project:GameBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    if(startTime + 2 < ElapsedTime)then
+        Scene.Change("mainMenu")
+    end
 end
 
 function GameLogoScene:touched(touch)
