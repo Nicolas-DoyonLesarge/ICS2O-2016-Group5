@@ -13,8 +13,6 @@
 DEBUG_GAMECENTER = true
 
 -- Global variables to the entire project
-worldSelected = 0
-levelSelected = 0
 
 -- local variables to this scene
 
@@ -32,12 +30,6 @@ function setup()
     -- create the scenes
     Scene("companyLogoScene", CompanyLogoScene)
     Scene("gameLogoScene", GameLogoScene)
-    Scene("mainMenuScene", MainMenuScene)
-    Scene("settingsScene", SettingsScene)
-    Scene("creditsScene", CreditsScene)
-    Scene("storeScene", StoreScene)
-    Scene("worldSelectScene", WorldSelectScene)
-    Scene("levelSelectScene", LevelSelectScene)
     
     Scene.Change("companyLogoScene")
 end
