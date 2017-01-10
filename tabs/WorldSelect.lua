@@ -17,8 +17,8 @@ function WorldSelect:init()
     noStroke()
     pushStyle()
     --sprite("Project:Blue Info Button")
-    world1 = Button ("Project:Blue Forward Circle Button", vec2(WIDTH/2, HEIGHT/2))
-    world2 = Button ("Project:Blue Info Button", vec2(WIDTH/2, HEIGHT/3))
+    world1 = Button ("Project:Blue Forward Circle Button", vec2(WIDTH/4, HEIGHT/2))
+    world2 = Button ("Project:Blue Info Button", vec2(WIDTH/1.4, HEIGHT/2))
     buttonToMainMenu = Button("Project:Blue Back Circle Button", vec2(100, 700))
 end
 

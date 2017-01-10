@@ -17,7 +17,7 @@ function MainMenu:init()
     noStroke()
     pushStyle()
     --sprite("Project:Blue Info Button")
-    startButton = Button ("Project:Blue Info Button", vec2(WIDTH/2, HEIGHT/3))
+    startButton = Button ("Project:Blue Info Button", vec2(WIDTH/2, HEIGHT/2))
     
 end
 

@@ -21,12 +21,20 @@ function LevelsWorld2:init()
     pushStyle()
     sprite("Project:Blue Back Circle Button")
     buttonToWorldSelect = Button("Project:Blue Back Circle Button", vec2(100, 700)) 
-    level11 = Button("Project:Blue Forward Button", vec2(WIDTH/2, HEIGHT/2))
+    level11 = Button("Project:Blue Forward Button", vec2(WIDTH/10, HEIGHT/2))
+    level12 = Button("Project:Blue Forward Button", vec2(WIDTH/3.35, HEIGHT/2))
+    level13 = Button("Project:Blue Forward Button", vec2(WIDTH/2, HEIGHT/2))
+    level14 = Button("Project:Blue Forward Button", vec2(WIDTH/1.43, HEIGHT/2))
+    level15 = Button("Project:Blue Forward Button", vec2(WIDTH/1.1, HEIGHT/2))
 end
 
 function LevelsWorld2:draw()
     -- Codea does not automatically call this method
     level11:draw()
+    level12:draw()
+    level13:draw()
+    level14:draw()
+    level15:draw()
     buttonToWorldSelect:draw()
     
 end
@@ -34,6 +42,10 @@ end
 function LevelsWorld2:touched(touch)
     -- Codea does not automatically call this method
     level11:touched(touch)
+    level12:touched(touch)
+    level13:touched(touch)
+    level14:touched(touch)
+    level15:touched(touch)
     buttonToWorldSelect:touched(touch)
     
     
