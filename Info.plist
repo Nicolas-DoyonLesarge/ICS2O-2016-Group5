@@ -13,6 +13,7 @@
 		<string>WorldSelectScene</string>
 		<string>LevelSelectScene</string>
 		<string>MainGameScene</string>
+		<string>LevelCompleteScene</string>
 		<string>SettingsScene</string>
 		<string>CreditsScene</string>
 		<string>StoreScene</string>

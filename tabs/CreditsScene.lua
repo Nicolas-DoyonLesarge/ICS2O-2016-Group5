@@ -11,6 +11,8 @@ CreditsScene = class()
 
 -- local variables to this scene
 local backButton
+local yPosition = HEIGHT/12
+local startTime
 
 -- Use this function to perform your initial setup for this scene
 function CreditsScene:init()
@@ -23,28 +25,76 @@ function CreditsScene:init()
     -- scene setup code here
     --sprite("Dropbox:Blue Back Circle Button")
     backButton = Button("Dropbox:Blue Back Circle Button", vec2(100, HEIGHT-100))
+    startTime = ElapsedTime
 end
 
 function CreditsScene:draw()
     -- Codea does not automatically call this method
     
-    background(51, 255, 0, 255)
+    background(255, 213, 0, 255)
+    sprite("Project:creditsSceneBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
-    font("AmericanTypewriter-CondensedLight")
-    fontSize(50)
-    fill(218, 23, 23, 255)
+    font("AmericanTypewriter-Condensed")
+    fontSize(55)
+    fill(255, 0, 21, 255)
     
-    text("Created by . . .", WIDTH/2, HEIGHT/1.1)
+    text("Created by . . .", WIDTH/2, yPosition)
+    
+    fontSize(40)
+    fill(255, 255, 255, 255)
+    font("Baskerville-Italic")
+    
+    text("Grade Threes", WIDTH/2, yPosition - 95)
+    text("__________", WIDTH/2, yPosition - 100)
+    
+    fontSize(35)
+    
+    text("Abbey", WIDTH/2, yPosition - 160)
+    text("Madilynn", WIDTH/2, yPosition - 210)
+    text("Mandela", WIDTH/2, yPosition - 260)
+    text("Trinity", WIDTH/2, yPosition - 310)
+    
+    fontSize(40)
+    
+    text("Grade Nines and Tens", WIDTH/2, yPosition - 390)
+    text("________________", WIDTH/2, yPosition - 395)
+    
+    fontSize(35)
+    
+    text("Menu System : Nick", WIDTH/2, yPosition - 440)
+    text("Main Game : James", WIDTH/2, yPosition - 490)
+    text("Dylan", WIDTH/2, yPosition - 540)
+    
+    fill(245, 231, 29, 255)
+    text("Thank You For Playing 😄!", WIDTH/2, yPosition - 630)
+    
+    -- Have the text move up, like credits
+    
+    if (startTime + 0.5 < ElapsedTime) then
+        yPosition = yPosition + 1
+    end
+    
+    -- Has the text freeze, so that it shows the entire text
+    
+    if (startTime + 11 < ElapsedTime) then
+        yPosition = yPosition - 1
+    end
     
     -- do your drawing here
+    
     backButton:draw()
 end
 
 function CreditsScene:touched(touch)
+    
     -- Codea does not automatically call this method
+    
     backButton:touched(touch)
     
     if(backButton.selected == true) then
         Scene.Change("mainMenuScene")
+        
+        -- When you exit the scene, the position of the words reset
+        yPosition = HEIGHT/12 
     end    
 end

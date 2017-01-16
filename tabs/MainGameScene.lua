@@ -17,6 +17,10 @@ local gameTime
 local totalPoints = 500
 local totalPointsToStart
 
+local wordPositions = {}
+local width1 = WIDTH/4.9
+local width2 = WIDTH/1.4
+
 function MainGameScene:init()
     
     noFill()
@@ -44,7 +48,7 @@ function MainGameScene:draw()
    imageHint:draw()
     
     if(gameTime + 5 < ElapsedTime)then
-       totalPoints = totalPoints - 0.01
+       totalPoints = totalPoints - 0.018
        print(totalPoints)
    end
 

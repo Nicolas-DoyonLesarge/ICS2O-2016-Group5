@@ -15,6 +15,7 @@ DEBUG_GAMECENTER = true
 -- Global variables to the entire project
 worldSelected = 0
 levelSelected = 0
+levelsCompleted = 0
 world1List = {}
 world2List = {}
 
@@ -135,6 +136,7 @@ function setup()
     Scene("storeScene", StoreScene)
     Scene("worldSelectScene", WorldSelectScene)
     Scene("levelSelectScene", LevelSelectScene)
+    Scene("levelCompleteScene", LevelCompleteScene)
     
     Scene.Change("companyLogoScene")
 end

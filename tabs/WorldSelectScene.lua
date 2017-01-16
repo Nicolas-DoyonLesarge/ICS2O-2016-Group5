@@ -13,7 +13,6 @@ WorldSelectScene = class()
 local backButton
 local world1Button
 local world2Button
-local world3Button
 
 -- Use this function to perform your initial setup for this scene
 function WorldSelectScene:init()
@@ -24,16 +23,34 @@ function WorldSelectScene:init()
     pushStyle()
     
     -- scene setup code here
-    --sprite("Dropbox:Blue Back Circle Button")
+    
+    sprite("Project:world2Select")
+    
     backButton = Button("Dropbox:Blue Back Circle Button", vec2(100, HEIGHT-100))
-    world1Button = Button("Dropbox:Blue Back Circle Button", vec2(WIDTH/2-250, HEIGHT/2))
-    world2Button = Button("Dropbox:Blue Back Circle Button", vec2(WIDTH/2+250, HEIGHT/2))
+    world1Button = Button("Project:world1Select", vec2(WIDTH/2-250, HEIGHT/2))
+    world2Button = Button("Project:world2Select", vec2(WIDTH/2+250, HEIGHT/2))
 end
 
 function WorldSelectScene:draw()
     -- Codea does not automatically call this method
     
     background(255, 255, 255, 255)
+    sprite("Project:worldSelectBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    
+    font("Arial-ItalicMT")
+    fontSize(50)
+    fill(255, 255, 255, 255)
+    
+    text("World 1", WIDTH/4, HEIGHT/4)
+    
+    fill(0, 99, 255, 255)
+    
+    text("World 2", WIDTH/1.35, HEIGHT/4)
+    
+    fill(255, 0, 6, 255)
+    fontSize(60)
+    
+    text("World Select", WIDTH/2, HEIGHT/1.1)
     
     -- do your drawing here
     backButton:draw()
@@ -55,7 +72,7 @@ function WorldSelectScene:touched(touch)
         Scene.Change("levelSelectScene")
     end  
     if(world2Button.selected == true) then
-        Scene.Change("levelSelectScene")
         worldSelected = 2
+        Scene.Change("levelSelectScene")
     end  
 end
