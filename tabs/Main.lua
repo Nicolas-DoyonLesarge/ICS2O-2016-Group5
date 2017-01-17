@@ -137,6 +137,8 @@ function setup()
     Scene("worldSelectScene", WorldSelectScene)
     Scene("levelSelectScene", LevelSelectScene)
     Scene("levelCompleteScene", LevelCompleteScene)
+    Scene("levelsWorld1", LevelsWorld1)
+    Scene("levelsWorld2", LevelsWorld2)
     
     Scene.Change("companyLogoScene")
 end

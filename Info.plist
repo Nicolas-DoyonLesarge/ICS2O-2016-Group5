@@ -11,7 +11,8 @@
 		<string>GameLogoScene</string>
 		<string>MainMenuScene</string>
 		<string>WorldSelectScene</string>
-		<string>LevelSelectScene</string>
+		<string>LevelsWorld1</string>
+		<string>LevelsWorld2</string>
 		<string>MainGameScene</string>
 		<string>LevelCompleteScene</string>
 		<string>SettingsScene</string>

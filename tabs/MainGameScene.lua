@@ -12,14 +12,17 @@ MainGameScene = class()
 -- Variables local to this tab
 local hintButton
 local resetButton
-local imageHint
 local gameTime
 local totalPoints = 500
 local totalPointsToStart
+local imagePosition = vec2()
+local imagePosition1 = vec2()
+local startPosition = vec2()
+local startPosition1 = vec2()
 
-local wordPositions = {}
-local width1 = WIDTH/4.9
-local width2 = WIDTH/1.4
+--local wordPositions = {}
+--local width1 = WIDTH/4.9
+--local width2 = WIDTH/1.4
 
 function MainGameScene:init()
     
@@ -31,10 +34,55 @@ function MainGameScene:init()
     --sprite("Project:Blue Redo Button")
     hintButton = Button("Dropbox:Blue Info Button", vec2(WIDTH/1.1, HEIGHT/9.1))
     resetButton = Button("Dropbox:Blue Redo Button", vec2(WIDTH/1.1, HEIGHT/1.1))
-    imageHint = SpriteObject("Cargo Bot:Codea Icon", vec2(WIDTH/2, HEIGHT/1.6))
     
     -- scene setup code here
     gameTime = ElapsedTime - 1
+    local imageName = "Dropbox:Blue Back Circle Button"
+    imagePosition = vec2(WIDTH/2.6, HEIGHT/7)
+    imagePosition1 = vec2(WIDTH/1.4, HEIGHT/7)
+    imageSize = vec2(spriteSize(imageName))
+    imageSize1 = vec2(spriteSize(imageName))
+    startPosition = imagePosition
+    startPosition1 = imagePosition1
+end
+
+function MainGameScene:touched(touch)
+    -- Codea does not automatically call this method
+    
+    hintButton:touched(touch)
+    resetButton:touched(touch)
+    local currentTouchPosition = vec2(touch.x, touch.y)
+    
+    if (touch.state == MOVING) then
+        if((imagePosition.x - imageSize.x/2) < currentTouchPosition.x and
+        (imagePosition.x + imageSize.x/2) > currentTouchPosition.x and
+        (imagePosition.y - imageSize.y/2) < currentTouchPosition.y and
+        (imagePosition.y + imageSize.y/2) > currentTouchPosition.y ) then
+            
+        imagePosition = currentTouchPosition
+        end
+            
+        if((imagePosition1.x - imageSize1.x/2) < currentTouchPosition.x and
+        (imagePosition1.x + imageSize1.x/2) > currentTouchPosition.x and
+        (imagePosition1.y - imageSize1.y/2) < currentTouchPosition.y and
+        (imagePosition1.y + imageSize1.y/2) > currentTouchPosition.y ) then
+            
+        imagePosition1 = currentTouchPosition
+        end
+    end
+    
+    if (touch.state == ENDED) then
+        imagePosition = startPosition
+        imagePosition1 = startPosition1
+    end
+    
+    if (hintButton.selected == true) then
+        print("hi")
+    end
+    
+    if (resetButton.selected == true) then
+        print(world1List[1]["word10part1"])
+    end
 end
 
 function MainGameScene:draw()
@@ -45,7 +93,6 @@ function MainGameScene:draw()
     
    hintButton:draw()
    resetButton:draw()
-   imageHint:draw()
     
     if(gameTime + 5 < ElapsedTime)then
        totalPoints = totalPoints - 0.018
@@ -74,34 +121,23 @@ function MainGameScene:draw()
    fill(0, 34, 255, 255)
    fontSize(50)
    font("ArialMT")
+   text("_______", WIDTH/3.4, HEIGHT/3)
+   text("_______", WIDTH/1.6, HEIGHT/3)
+   text("sound", WIDTH/1.8, HEIGHT/7)
+   text("track", WIDTH/4.9, HEIGHT/7)
     
    if (levelSelected == 1) and (worldSelected == 1) then
-      text(world1List[1]["word1part1"], WIDTH/4.9, HEIGHT/6)
-      text(world1List[1]["word1part2"], WIDTH/1.4, HEIGHT/6) else
+      text(world1List[1]["word1part1"], imagePosition.x, imagePosition.y)
+      text(world1List[1]["word1part2"], imagePosition1.x, imagePosition1.y) else
    end
         
-   if (levelSelected == 2) then
-      text(world1List[2]["word2part1"], WIDTH/2, HEIGHT/2)
-      text(world1List[2]["word2part1"], WIDTH/2, HEIGHT/2) else
+   if (levelSelected == 2) and (worldSelected == 1) then
+      text(world1List[2]["word2part1"], imagePosition.x, imagePosition.y)
+      text(world1List[2]["word2part2"], imagePosition1.x, imagePosition1.y) else
    end 
     
    if (levelSelected == 3) then
        text(world1List[3]["word3part1"], WIDTH/2, HEIGHT/2)
        text(world1List[3]["word3part2"], WIDTH/2, HEIGHT/2) else
    end
-end
-
-function MainGameScene:touched(touch)
-    -- Codea does not automatically call this method
-    
-    hintButton:touched(touch)
-    resetButton:touched(touch)
-    
-    if (hintButton.selected == true) then
-        print("hi")
-    end
-    
-    if (resetButton.selected == true) then
-        print(world1List[1]["word10part1"])
-    end
 end

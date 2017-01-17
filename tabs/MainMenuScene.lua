@@ -52,7 +52,7 @@ function MainMenuScene:draw()
     sprite("Project:cookies", xPosition3 + 700, yPosition + 400)
     sprite("Project:cookies", xPosition + 200, yPosition + 500)
     
-    yPosition = yPosition - 2
+    yPosition = yPosition - 4
     
     if (yPosition < HEIGHT/10 - 1000) then
         yPosition = HEIGHT/1.1 + 300

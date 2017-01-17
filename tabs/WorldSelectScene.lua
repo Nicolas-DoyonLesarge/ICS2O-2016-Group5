@@ -69,10 +69,10 @@ function WorldSelectScene:touched(touch)
     end    
     if(world1Button.selected == true) then
         worldSelected = 1
-        Scene.Change("levelSelectScene")
+        Scene.Change("levelsWorld1")
     end  
     if(world2Button.selected == true) then
         worldSelected = 2
-        Scene.Change("levelSelectScene")
+        Scene.Change("levelsWorld2")
     end  
 end
