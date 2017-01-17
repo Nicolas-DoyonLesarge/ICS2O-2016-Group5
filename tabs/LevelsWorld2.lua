@@ -4,6 +4,7 @@
 -- Created by: Nicolas Doyon Lesarge
 -- Created on: Dec-2016
 -- Created for: ICS2O
+local buttonToMainMenu
 local buttonToWorldSelect
 local level11
 local level12
@@ -20,12 +21,13 @@ function LevelsWorld2:init()
     noStroke()
     pushStyle()
     sprite("Project:Blue Back Circle Button")
-    buttonToWorldSelect = Button("Project:Blue Back Circle Button", vec2(100, 700)) 
-    level11 = Button("Project:Blue Forward Button", vec2(WIDTH/10, HEIGHT/2))
-    level12 = Button("Project:Blue Forward Button", vec2(WIDTH/3.35, HEIGHT/2))
-    level13 = Button("Project:Blue Forward Button", vec2(WIDTH/2, HEIGHT/2))
-    level14 = Button("Project:Blue Forward Button", vec2(WIDTH/1.43, HEIGHT/2))
-    level15 = Button("Project:Blue Forward Button", vec2(WIDTH/1.1, HEIGHT/2))
+    buttonToMainMenu = Button("Dropbox:Blue Return Button", vec2(WIDTH/1.1, HEIGHT/1.1))
+    buttonToWorldSelect = Button("Dropbox:Blue Back Circle Button", vec2(WIDTH/10, HEIGHT/1.1)) 
+    level11 = Button("Dropbox:Blue Forward Button", vec2(WIDTH/10, HEIGHT/2))
+    level12 = Button("Dropbox:Blue Forward Button", vec2(WIDTH/3.35, HEIGHT/2))
+    level13 = Button("Dropbox:Blue Forward Button", vec2(WIDTH/2, HEIGHT/2))
+    level14 = Button("Dropbox:Blue Forward Button", vec2(WIDTH/1.43, HEIGHT/2))
+    level15 = Button("Dropbox:Blue Forward Button", vec2(WIDTH/1.1, HEIGHT/2))
 end
 
 function LevelsWorld2:draw()
@@ -36,7 +38,7 @@ function LevelsWorld2:draw()
     level14:draw()
     level15:draw()
     buttonToWorldSelect:draw()
-    
+    buttonToMainMenu:draw()
 end
 
 function LevelsWorld2:touched(touch)
@@ -47,8 +49,11 @@ function LevelsWorld2:touched(touch)
     level14:touched(touch)
     level15:touched(touch)
     buttonToWorldSelect:touched(touch)
+    buttonToMainMenu:touched(touch)
     
-    
+    if (buttonToMainMenu.selected == true) then
+        Scene.Change("mainMenu")
+    end
     
     if (buttonToWorldSelect.selected == true) then
         Scene.Change("worldSelect")  
