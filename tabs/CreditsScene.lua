@@ -63,10 +63,10 @@ function CreditsScene:draw()
     
     text("Menu System : Nick", WIDTH/2, yPosition - 440)
     text("Main Game : James", WIDTH/2, yPosition - 490)
-    text("Dylan", WIDTH/2, yPosition - 540)
     
     fill(245, 231, 29, 255)
-    text("Thank You For Playing 😄!", WIDTH/2, yPosition - 630)
+    fontSize(50)
+    text("Thank You For Playing 😄!", WIDTH/2, yPosition - 580)
     
     -- Have the text move up, like credits
     
@@ -76,7 +76,7 @@ function CreditsScene:draw()
     
     -- Has the text freeze, so that it shows the entire text
     
-    if (startTime + 11 < ElapsedTime) then
+    if (startTime + 21 < ElapsedTime) then
         yPosition = yPosition - 1
     end
     
