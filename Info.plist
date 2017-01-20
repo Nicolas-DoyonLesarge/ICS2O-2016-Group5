@@ -10,8 +10,7 @@
 		<string>CompanyLogoScene</string>
 		<string>GameLogoScene</string>
 		<string>MainMenu</string>
-		<string>Settings</string>
-		<string>HighScoresScene</string>
+		<string>SettingsScene</string>
 		<string>CreditsScene</string>
 		<string>WorldSelect</string>
 		<string>LevelsWorld1</string>

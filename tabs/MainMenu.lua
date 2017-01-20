@@ -66,7 +66,7 @@ function MainMenu:touched(touch)
         end
     end
     if(settingsButton.selected == true) then
-        Scene.Change("settings")
+        Scene.Change("settingsScene")
     end
     if(creditsButton.selected == true) then
         Scene.Change("creditsScene")

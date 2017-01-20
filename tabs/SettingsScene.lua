@@ -5,29 +5,37 @@
 -- Created on: Jan-2017
 -- Created for: ICS2O
 local buttonToMainMenu
+local musicButton
 
-Settings = class()
 
-function Settings:init()
+SettingsScene = class()
+
+function SettingsScene:init()
     -- you can accept and set parameters here
-    
+    --sprite("Dropbox:Green Info Button")
     noFill()
     noSmooth()
     noStroke()
     pushStyle()
     buttonToMainMenu = Button("Dropbox:Blue Back Circle Button", vec2(WIDTH/10, HEIGHT/1.1))
+    musicButton = Button("Dropbox:Green Info Button", vec2(WIDTH/2, HEIGHT/2))
 end
 
-function Settings:draw()
+function SettingsScene:draw()
     -- Codea does not automatically call this method
     buttonToMainMenu:draw()
+    musicButton:draw()
     text("Music", vec2(WIDTH/8, HEIGHT/1.01))
 end
 
-function Settings:touched(touch)
+function SettingsScene:touched(touch)
     -- Codea does not automatically call this method
     buttonToMainMenu:touched(touch)
+    musicButton:touched(touch)
     
+    if (musicButton.selected == true) then
+        
+    end
     if (buttonToMainMenu.selected == true) then
         Scene.Change("mainMenu")
     end

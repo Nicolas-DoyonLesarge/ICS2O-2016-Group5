@@ -13,7 +13,7 @@
 DEBUG_GAMECENTER = true
 
 -- Global variables to the entire project
-
+gameMusic = true
 -- local variables to this scene
 
 
@@ -27,6 +27,9 @@ function setup()
     noSmooth()
     noStroke()
     pushStyle()    
+    
+    gameMusic = sound("Game Music One:Funk Blue Cube")
+    
     
     world1List = {}
     world2List = {}
@@ -57,6 +60,9 @@ function setup()
     Scene("worldSelect", WorldSelect)
     Scene("levelsWorld1", LevelsWorld1)
     Scene("levelsWorld2", LevelsWorld2)
+    Scene("settingsScene", SettingsScene)
+    Scene("creditsScene", CreditsScene)
+    Scene("highScoresScene")
     
     Scene.Change("companyLogoScene")
 end
