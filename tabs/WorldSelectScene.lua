@@ -24,18 +24,18 @@ function WorldSelectScene:init()
     
     -- scene setup code here
     
-    sprite("Project:world2Select")
+    --sprite("Project:world2Select")
     
     backButton = Button("Dropbox:Blue Back Circle Button", vec2(100, HEIGHT-100))
-    world1Button = Button("Project:world1Select", vec2(WIDTH/2-250, HEIGHT/2))
-    world2Button = Button("Project:world2Select", vec2(WIDTH/2+250, HEIGHT/2))
+    world1Button = Button("Dropbox:world1Select", vec2(WIDTH/2-250, HEIGHT/2))
+    world2Button = Button("Dropbox:world2Select", vec2(WIDTH/2+250, HEIGHT/2))
 end
 
 function WorldSelectScene:draw()
     -- Codea does not automatically call this method
     
     background(255, 255, 255, 255)
-    sprite("Project:worldSelectBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    sprite("Dropbox:worldSelectBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     font("Arial-ItalicMT")
     fontSize(50)

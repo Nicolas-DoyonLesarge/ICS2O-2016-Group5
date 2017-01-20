@@ -13,11 +13,11 @@
 DEBUG_GAMECENTER = true
 
 -- Global variables to the entire project
-worldSelected = 0
-levelSelected = 0
-levelsCompleted = 0
+worldSelected = nil
+levelSelected = nil
 world1List = {}
 world2List = {}
+totalPoints = nil
 
 -- local variables to this scene
 
@@ -85,7 +85,7 @@ function setup()
     word9world1["word9"] = "basketball"
     word9world1["word9part1"] = "basket"
     word9world1["word9part2"] = "ball"
-    table.insert(world1List, word9world)
+    table.insert(world1List, word9world1)
     
     word10world1 = {}
     word10world1["word10"] = "chalkboard"
@@ -122,7 +122,7 @@ function setup()
     word5world2 = {}
     word5world2["word5"] = "tablet" 
     word5world2["word5part1"] = "tab"
-    word5world2["word5part1"] = "let"
+    word5world2["word5part2"] = "let"
     table.insert(world2List, word5world2)
     
     -- create the scenes

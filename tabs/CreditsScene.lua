@@ -32,7 +32,7 @@ function CreditsScene:draw()
     -- Codea does not automatically call this method
     
     background(255, 213, 0, 255)
-    sprite("Project:creditsSceneBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    sprite("Dropbox:creditsSceneBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     font("AmericanTypewriter-Condensed")
     fontSize(55)

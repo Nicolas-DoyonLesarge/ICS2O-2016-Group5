@@ -42,17 +42,17 @@ function MainMenuScene:draw()
     -- Codea does not automatically call this method
     
     background(0, 151, 255, 255)
-    sprite("Cargo Bot:Game Lower BG", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    sprite("Dropbox:Image 2", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
-    sprite("Project:cookiePile", WIDTH/2, HEIGHT/8.1, WIDTH * 1.2, HEIGHT/1.2)
+    sprite("Dropbox:cookiePile", WIDTH/2, HEIGHT/8.1, WIDTH * 1.2, HEIGHT/1.2)
 
-    sprite("Project:cookies", xPosition, yPosition)
-    sprite("Project:cookies", xPosition1 + 400, yPosition + 200)
-    sprite("Project:cookies", xPosition2, yPosition + 300)
-    sprite("Project:cookies", xPosition3 + 700, yPosition + 400)
-    sprite("Project:cookies", xPosition + 200, yPosition + 500)
+    sprite("Dropbox:cookies", xPosition, yPosition)
+    sprite("Dropbox:cookies", xPosition1 + 400, yPosition + 200)
+    sprite("Dropbox:cookies", xPosition2, yPosition + 300)
+    sprite("Dropbox:cookies", xPosition3 + 700, yPosition + 400)
+    sprite("Dropbox:cookies", xPosition + 200, yPosition + 500)
     
-    yPosition = yPosition - 4
+    yPosition = yPosition - 5
     
     if (yPosition < HEIGHT/10 - 1000) then
         yPosition = HEIGHT/1.1 + 300
