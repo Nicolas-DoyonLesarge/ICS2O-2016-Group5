@@ -1,19 +1,19 @@
 -- ICS2O-2016-Group5
--- WorldSelect
+-- StoreScene
 
--- Created by: Nicolas Doyon Lesarge
--- Created on: Jan-2017
+-- Created by: Mr.Coxall
+-- Created on: Dec-2016
 -- Created for: ICS2O
-local buttonToMainMenu
-local musicButton
+-- This is the project for Group #5-2016
+-- This is the scene for the store
 
-SettingsScene = class()
+StoreScene = class()
 
 -- local variables to this scene
 local backButton
 
 -- Use this function to perform your initial setup for this scene
-function SettingsScene:init()
+function StoreScene:init()
     -- setup display options
     noFill()
     noSmooth()
@@ -25,15 +25,16 @@ function SettingsScene:init()
     backButton = Button("Dropbox:Blue Back Circle Button", vec2(100, HEIGHT-100))
 end
 
-function SettingsScene:draw()
+function StoreScene:draw()
     -- Codea does not automatically call this method
-    background(28, 0, 255, 255)
+    
+    background(255, 0, 0, 255)
     
     -- do your drawing here
     backButton:draw()
 end
 
-function SettingsScene:touched(touch)
+function StoreScene:touched(touch)
     -- Codea does not automatically call this method
     backButton:touched(touch)
     

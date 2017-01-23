@@ -15,7 +15,7 @@ local startTime
 -- Use this function to perform your initial setup for this scene
 function GameLogoScene:init()
     -- set up display options
-    
+  
     noFill()
     noSmooth()
     noStroke()
@@ -31,9 +31,10 @@ function GameLogoScene:draw()
     background(28, 28, 28, 255)
     
     -- Do your drawing here
-    sprite("Project:GameBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    sprite("Dropbox:GameBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    
     if(startTime + 2 < ElapsedTime)then
-        Scene.Change("mainMenu")
+        Scene.Change("mainMenuScene")
     end
 end
 

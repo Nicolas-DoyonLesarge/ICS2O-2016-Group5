@@ -13,9 +13,13 @@
 DEBUG_GAMECENTER = true
 
 -- Global variables to the entire project
-gameMusic = true
--- local variables to this scene
+worldSelected = nil
+levelSelected = nil
+world1List = {}
+world2List = {}
+totalPoints = nil
 
+-- local variables to this scene
 
 -- Use this function to perform your initial setup
 function setup()
@@ -27,42 +31,115 @@ function setup()
     noSmooth()
     noStroke()
     pushStyle()    
+
+    -- All words in World 1
     
-    gameMusic = sound("Game Music One:Funk Blue Cube")
+    word1world1 = {}
+    word1world1["word1"] = "thanksgiving" 
+    word1world1["word1part1"] = "thanks"
+    word1world1["word1part2"] = "giving"
+    table.insert(world1List, word1world1)
     
+    word2world1 = {}
+    word2world1["word2"] = "homework"
+    word2world1["word2part1"] = "home"
+    word2world1["word2part2"] = "work"
+    table.insert(world1List, word2world1)
     
-    world1List = {}
-    world2List = {}
+    word3world1 = {}
+    word3world1["word3"] = "popcorn"
+    word3world1["word3part1"] = "pop"
+    word3world1["word3part2"] = "corn"
+    table.insert(world1List, word3world1)
     
-    -- All words in world 1
+    word4world1 = {}
+    word4world1["word4"] = "soundtrack"
+    word4world1["word4part1"] = "sound"
+    word4world1["word4part2"] = "track"
+    table.insert(world1List, word4world1)
     
-    world1List["word1"] = "thanksgiving" 
-    world1List["image1"] = SpriteObject("Cargo Bot:Step Button", vec2(WIDTH/4, HEIGHT/4))
-    world1List["word2"] = "homework"
-    world1List["word3"] = "popcorn"
-    world1List["word4"] = "soundtrack"
-    world1List["word5"] = "notebook"
-    world1List["word6"] = "bedroom"
-    world1List["word7"] = "everybody"
-    world1List["word8"] = "football"
-    world1List["word9"] = "basketball"
-    world1List["word10"] = "chalkboard"
+    word5world1 = {}
+    word5world1["word5"] = "notebook"
+    word5world1["word5part1"] = "note"
+    word5world1["word5part2"] = "book"
+    table.insert(world1List, word5world1)
+    
+    word6world1 = {}
+    word6world1["word6"] = "bedroom"
+    word6world1["word6part1"] = "bed"
+    word6world1["word6part2"] = "room"
+    table.insert(world1List, word6world1)
+    
+    word7world1 = {}
+    word7world1["word7"] = "everybody"
+    word7world1["word7part1"] = "every"
+    word7world1["word7part2"] = "body"
+    table.insert(world1List, word7world1)
+    
+    word8world1 = {}
+    word8world1["word8"] = "football"
+    word8world1["word8part1"] = "foot"
+    word8world1["word8part2"] = "ball"
+    table.insert(world1List, word8world1)
+    
+    word9world1 = {}
+    word9world1["word9"] = "basketball"
+    word9world1["word9part1"] = "basket"
+    word9world1["word9part2"] = "ball"
+    table.insert(world1List, word9world1)
+    
+    word10world1 = {}
+    word10world1["word10"] = "chalkboard"
+    word10world1["word10part1"] = "chalk"
+    word10world1["word10part2"] = "board"
+    table.insert(world1List, word10world1)
     
     -- All words in world 2
-    world2List["word1"] = "backpack" 
-    world2List["word4"] = "pirate" 
-    world2List["word5"] = "tablet" 
+    
+    word1world2 = {}
+    word1world2["word1"] = "backpack" 
+    word1world2["word1part1"] = "back"
+    word1world2["word1part2"] = "pack"
+    table.insert(world2List, word1world2)
+
+    word2world2 = {}
+    word2world2["word2"] = "legend" 
+    word2world2["word2part1"] = "leg"
+    word2world2["word2part2"] = "end"
+    table.insert(world2List, word2world2)
+    
+    word3world2 = {}
+    word3world2["word3"] = "question" 
+    word3world2["word3part1"] = "quest"
+    word3world2["word3part2"] = "ion"
+    table.insert(world2List, word3world2)
+    
+    word4world2 = {}
+    word4world2["word4"] = "pirate" 
+    word4world2["word4part1"] = "pi"
+    word4world2["word4part2"] = "rate"
+    table.insert(world2List, word4world2)
+    
+    word5world2 = {}
+    word5world2["word5"] = "tablet" 
+    word5world2["word5part1"] = "tab"
+    word5world2["word5part2"] = "let"
+    table.insert(world2List, word5world2)
     
     -- create the scenes
+    
     Scene("companyLogoScene", CompanyLogoScene)
     Scene("gameLogoScene", GameLogoScene)
-    Scene("mainMenu", MainMenu)
-    Scene("worldSelect", WorldSelect)
-    Scene("levelsWorld1", LevelsWorld1)
-    Scene("levelsWorld2", LevelsWorld2)
+    Scene("mainMenuScene", MainMenuScene)
+    Scene("mainGameScene", MainGameScene)
     Scene("settingsScene", SettingsScene)
     Scene("creditsScene", CreditsScene)
-    Scene("highScoresScene")
+    Scene("storeScene", StoreScene)
+    Scene("worldSelectScene", WorldSelectScene)
+    Scene("levelSelectScene", LevelSelectScene)
+    Scene("levelCompleteScene", LevelCompleteScene)
+    Scene("levelsWorld1", LevelsWorld1)
+    Scene("levelsWorld2", LevelsWorld2)
     
     Scene.Change("companyLogoScene")
 end
