@@ -12,9 +12,7 @@ MainMenuScene = class()
 -- local variables to this scene
 local playButton
 local leaderBoardButton
-local settingsButton
 local creditsButton
-local storeButton
 local xPosition = WIDTH/math.random(2,3)
 local xPosition1 = WIDTH/math.random(4,5)
 local xPosition2 = WIDTH/math.random(6,7)
@@ -33,9 +31,7 @@ function MainMenuScene:init()
     --sprite("Dropbox:Red Move Scene Forward Button")
     playButton = Button("Dropbox:Blue Move Scene Forward Button", vec2(WIDTH/2,HEIGHT/2))
     leaderBoardButton = Button("Dropbox:Blue Forward Circle Button", vec2(WIDTH-100,100))
-    settingsButton = Button("Dropbox:Blue Settings Button", vec2(100,HEIGHT-100))
     creditsButton = Button("Dropbox:Blue Question Button", vec2(100,100))
-    storeButton = Button("Dropbox:Blue Info Button", vec2(WIDTH-100,HEIGHT-100))
 end
 
 function MainMenuScene:draw()
@@ -67,18 +63,14 @@ function MainMenuScene:draw()
     -- do your drawing here
     playButton:draw()
     leaderBoardButton:draw()
-    settingsButton:draw()
     creditsButton:draw()
-    storeButton:draw()
 end
 
 function MainMenuScene:touched(touch)
     -- Codea does not automatically call this method
     playButton:touched(touch)
     leaderBoardButton:touched(touch)
-    settingsButton:touched(touch)
     creditsButton:touched(touch)
-    storeButton:touched(touch)
     
     if(playButton.selected == true) then
         Scene.Change("worldSelectScene")
@@ -99,26 +91,8 @@ function MainMenuScene:touched(touch)
         end
     end
     
-    if(settingsButton.selected == true) then
-        Scene.Change("settingsScene")
-        xPosition = WIDTH/math.random(2,3)
-        xPosition1 = WIDTH/math.random(4,5)
-        xPosition2 = WIDTH/math.random(6,7)
-        xPosition3 = WIDTH/math.random(8,9)
-        yPosition = HEIGHT/1.1 + 300
-    end
-    
     if(creditsButton.selected == true) then
         Scene.Change("creditsScene")
-        xPosition = WIDTH/math.random(2,3)
-        xPosition1 = WIDTH/math.random(4,5)
-        xPosition2 = WIDTH/math.random(6,7)
-        xPosition3 = WIDTH/math.random(8,9)
-        yPosition = HEIGHT/1.1 + 300
-    end
-    
-    if(storeButton.selected == true) then
-        Scene.Change("storeScene")
         xPosition = WIDTH/math.random(2,3)
         xPosition1 = WIDTH/math.random(4,5)
         xPosition2 = WIDTH/math.random(6,7)

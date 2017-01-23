@@ -280,7 +280,7 @@ function MainGameScene:draw()
     
    background(0, 0, 0, 255)
    sprite("SpaceCute:Background", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
-   sprite("Cargo Bot:Level Select Frame", WIDTH/2.3, HEIGHT/7, WIDTH/1.1, HEIGHT/4)
+   sprite("Dropbox:wordSelectFrame", WIDTH/2.3, HEIGHT/7, WIDTH/1.3, HEIGHT/5)
     
    hintButton:draw()
    resetButton:draw()
