@@ -15,6 +15,7 @@ local startTime
 -- Use this function to perform your initial setup for this scene
 function CompanyLogoScene:init()
     -- set up display options
+
     noFill()
     noSmooth()
     noStroke()

@@ -23,6 +23,7 @@ totalPoints = nil
 
 -- Use this function to perform your initial setup
 function setup()
+    
     -- set up display options
     supportedOrientations(LANDSCAPE_ANY)
     displayMode(FULLSCREEN)
@@ -30,7 +31,7 @@ function setup()
     noSmooth()
     noStroke()
     pushStyle()    
-    
+
     -- All words in World 1
     
     word1world1 = {}

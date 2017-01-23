@@ -1,11 +1,11 @@
 -- ICS2O-2016-Group5
--- SettingsScene
+-- WorldSelect
 
--- Created by: Mr.Coxall
--- Created on: Dec-2016
+-- Created by: Nicolas Doyon Lesarge
+-- Created on: Jan-2017
 -- Created for: ICS2O
--- This is the project for Group #5-2016
--- This is the scene for the settings
+local buttonToMainMenu
+local musicButton
 
 SettingsScene = class()
 
@@ -27,7 +27,6 @@ end
 
 function SettingsScene:draw()
     -- Codea does not automatically call this method
-    
     background(28, 0, 255, 255)
     
     -- do your drawing here

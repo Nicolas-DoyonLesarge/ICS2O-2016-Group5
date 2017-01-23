@@ -7,11 +7,11 @@
 
 local buttonToMainMenu
 local buttonToWorldSelect
-local level1
-local level2
-local level3
-local level4
-local level5
+local level11
+local level12
+local level13
+local level14
+local level15
 
 LevelsWorld2 = class()
 
@@ -56,6 +56,7 @@ end
 
 function LevelsWorld2:touched(touch)
     -- Codea does not automatically call this method
+
     level1:touched(touch)
     level2:touched(touch)
     level3:touched(touch)

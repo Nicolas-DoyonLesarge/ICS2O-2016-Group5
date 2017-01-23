@@ -15,6 +15,7 @@ local startTime
 -- Use this function to perform your initial setup for this scene
 function GameLogoScene:init()
     -- set up display options
+  
     noFill()
     noSmooth()
     noStroke()

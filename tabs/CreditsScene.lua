@@ -1,3 +1,8 @@
+
+CreditsScene = class()
+
+function CreditsScene:init(x)
+    -- you can accept and set parameters here
 -- ICS2O-2016-Group5
 -- CreditsScene
 
