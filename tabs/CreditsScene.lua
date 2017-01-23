@@ -65,8 +65,7 @@ function CreditsScene:draw()
     text("Main Game : James", WIDTH/2, yPosition - 490)
     
     fill(245, 231, 29, 255)
-    fontSize(50)
-    text("Thank You For Playing 😄!", WIDTH/2, yPosition - 580)
+    text("Artwork Taken From ClipartPanda.com!", WIDTH/2, yPosition - 580)
     
     -- Have the text move up, like credits
     

@@ -29,6 +29,8 @@ local randomWordList = {}
 local lockPosition = nil
 local lockPosition1 = nil
 local rightOrWrong = ""
+local wordPosition1
+local wordPosition2
 
 --local wordPositions = {}
 --local width1 = WIDTH/4.9
@@ -232,7 +234,7 @@ function MainGameScene:touched(touch)
     
     if (checkButton.selected == true) then
         
-        if (imagePosition == lockPosition) and (imagePosition1 == lockPosition1) then
+        if (wordPosition1 == lockPosition) and (wordPosition2 == lockPosition1) then
             
             Scene.Change("levelCompleteScene")
             randomWordList[1] = "and"
@@ -244,9 +246,9 @@ function MainGameScene:touched(touch)
             
             rightOrWrong = ""  else
             
-            if (imagePosition ~= lockPosition) or (imagePosition1 ~= lockPosition1) then
+            if (wordPosition1 ~= lockPosition) or (wordPosition2 ~= lockPosition1) then
                 rightOrWrong = "Wrong"
-                totalPoints = totalPoints - 10
+                totalPoints = totalPoints - 5
             end
         end
     end
@@ -271,8 +273,7 @@ function MainGameScene:touched(touch)
        imagePosition2 = startPosition2
        imagePosition3 = startPosition3
        rightOrWrong = ""
-    end
-    
+    end  
 end
 
 function MainGameScene:draw()
@@ -287,7 +288,7 @@ function MainGameScene:draw()
     
     print(totalPoints)
     
-    if(gameTime + 3 < ElapsedTime)then
+    if(gameTime + 4 < ElapsedTime)then
        totalPoints = totalPoints - 0.018
    end
 
@@ -324,51 +325,66 @@ function MainGameScene:draw()
    -- Shows the words
     
    if (levelSelected == 1) and (worldSelected == 1) then
-      text(world1List[1]["word1part1"], imagePosition.x, imagePosition.y)
+      text(world1List[1]["word1part1"], imagePosition2.x, imagePosition2.y)
       text(world1List[1]["word1part2"], imagePosition1.x, imagePosition1.y)
-      text(randomWordList[1], imagePosition2.x, imagePosition2.y)
+      text(randomWordList[1], imagePosition.x, imagePosition.y)
       text(randomWordList[2], imagePosition3.x, imagePosition3.y)
+      wordPosition1 = imagePosition2
+      wordPosition2 = imagePosition1
         
       sprite("Dropbox:imageHint1", WIDTH/2.1, HEIGHT/1.6) else
    end
         
    if (levelSelected == 2) and (worldSelected == 1) then
-      text(world1List[2]["word2part1"], imagePosition.x, imagePosition.y)
-      text(world1List[2]["word2part2"], imagePosition1.x, imagePosition1.y)
-      text(randomWordList[3], imagePosition2.x, imagePosition2.y)
-      text(randomWordList[4], imagePosition3.x, imagePosition3.y)
-      sprite("Dropbox:imageHint2" , WIDTH/2.1, HEIGHT/1.6) else
+      text(world1List[2]["word2part1"], imagePosition3.x, imagePosition3.y)
+      text(world1List[2]["word2part2"], imagePosition2.x, imagePosition2.y)
+      text(randomWordList[3], imagePosition1.x, imagePosition1.y)
+      text(randomWordList[4], imagePosition.x, imagePosition.y)
+      wordPosition1 = imagePosition3
+      wordPosition2 = imagePosition2
+        
+      sprite("Dropbox:imageHint2", WIDTH/2.1, HEIGHT/1.6) else
    end 
     
    if (levelSelected == 3) and (worldSelected == 1) then
-       text(world1List[3]["word3part1"], imagePosition.x, imagePosition.y)
+       text(world1List[3]["word3part1"], imagePosition2.x, imagePosition2.y)
        text(world1List[3]["word3part2"], imagePosition1.x, imagePosition1.y)
-       text(randomWordList[5], imagePosition2.x, imagePosition2.y)
+       text(randomWordList[5], imagePosition.x, imagePosition.y)
        text(randomWordList[6], imagePosition3.x, imagePosition3.y)
+       wordPosition1 = imagePosition2
+       wordPosition2 = imagePosition1
+        
        sprite("Dropbox:imageHint3", WIDTH/2.1, HEIGHT/1.6) else
    end
     
    if (levelSelected == 4) and (worldSelected == 1) then
-        text(world1List[4]["word4part1"], imagePosition.x, imagePosition.y)
-        text(world1List[4]["word4part2"], imagePosition1.x, imagePosition1.y)
+        text(world1List[4]["word4part1"], imagePosition3.x, imagePosition3.y)
+        text(world1List[4]["word4part2"], imagePosition.x, imagePosition.y)
         text(randomWordList[7], imagePosition2.x, imagePosition2.y)
-        text(randomWordList[8], imagePosition3.x, imagePosition3.y)
+        text(randomWordList[8], imagePosition1.x, imagePosition1.y)
+        wordPosition1 = imagePosition3
+        wordPosition2 = imagePosition
+        sprite("Dropbox:imageHint4", WIDTH/2.1, HEIGHT/1.6)
    end
 
     if (levelSelected == 5) and (worldSelected == 1) then
-        text(world1List[5]["word5part1"], imagePosition.x, imagePosition.y)
-        text(world1List[5]["word5part2"], imagePosition1.x, imagePosition1.y)
+        text(world1List[5]["word5part1"], imagePosition1.x, imagePosition1.y)
+        text(world1List[5]["word5part2"], imagePosition.x, imagePosition.y)
         text(randomWordList[1], imagePosition2.x, imagePosition2.y)
         text(randomWordList[2], imagePosition3.x, imagePosition3.y)
+        sprite("Dropbox:imageHint5", WIDTH/2.1, HEIGHT/1.6)
+        wordPosition1 = imagePosition1
+        wordPosition2 = imagePosition
    end
     
    if (levelSelected == 6) and (worldSelected == 1) then
-        text(world1List[6]["word6part1"], imagePosition.x, imagePosition.y)
-        text(world1List[6]["word6part2"], imagePosition1.x, imagePosition1.y)
+        text(world1List[6]["word6part1"], imagePosition3.x, imagePosition3.y)
+        text(world1List[6]["word6part2"], imagePosition.x, imagePosition.y)
         text(randomWordList[3], imagePosition2.x, imagePosition2.y)
-      text(randomWordList[4], imagePosition3.x, imagePosition3.y)
-      
-    
+        text(randomWordList[4], imagePosition1.x, imagePosition1.y)
+        sprite("Dropbox:imageHint6", WIDTH/2.1, HEIGHT/1.6)
+        wordPosition1 = imagePosition3
+        wordPosition2 = imagePosition
    end    
     
    if (levelSelected == 7) and (worldSelected == 1) then
@@ -376,41 +392,57 @@ function MainGameScene:draw()
         text(world1List[7]["word7part2"], imagePosition1.x, imagePosition1.y)
         text(randomWordList[5], imagePosition2.x, imagePosition2.y)
         text(randomWordList[6], imagePosition3.x, imagePosition3.y) 
+        sprite("Dropbox:imageHint7", WIDTH/2.1, HEIGHT/1.6)
+        wordPosition1 = imagePosition
+        wordPosition2 = imagePosition1
    end
     
    if (levelSelected == 8) and (worldSelected == 1) then
-        text(world1List[8]["word8part1"], imagePosition.x, imagePosition.y)
+        text(world1List[8]["word8part1"], imagePosition2.x, imagePosition2.y)
         text(world1List[8]["word8part2"], imagePosition1.x, imagePosition1.y)
-        text(randomWordList[7], imagePosition2.x, imagePosition2.y)
+        text(randomWordList[7], imagePosition.x, imagePosition.y)
         text(randomWordList[8], imagePosition3.x, imagePosition3.y)
+        sprite("Dropbox:imageHint8", WIDTH/2.1, HEIGHT/1.6)
+        wordPosition1 = imagePosition2
+        wordPosition2 = imagePosition1
    end
     
    if (levelSelected == 9) and (worldSelected == 1) then
-        text(world1List[9]["word9part1"], imagePosition.x, imagePosition.y)
-        text(world1List[9]["word9part2"], imagePosition1.x, imagePosition1.y)
-        text(randomWordList[9], imagePosition2.x, imagePosition2.y)
-        text(randomWordList[10], imagePosition3.x, imagePosition3.y)
+        text(world1List[9]["word9part1"], imagePosition2.x, imagePosition2.y)
+        text(world1List[9]["word9part2"], imagePosition3.x, imagePosition3.y)
+        text(randomWordList[9], imagePosition.x, imagePosition.y)
+        text(randomWordList[10], imagePosition1.x, imagePosition1.y)
+        sprite("Dropbox:imageHint9", WIDTH/2.1, HEIGHT/1.6)
+        wordPosition1 = imagePosition2
+        wordPosition2 = imagePosition3
    end
     
    if (levelSelected == 10) and (worldSelected == 1) then
         text(world1List[10]["word10part1"], imagePosition.x, imagePosition.y)
-        text(world1List[10]["word10part2"], imagePosition1.x, imagePosition1.y)
+        text(world1List[10]["word10part2"], imagePosition3.x, imagePosition3.y)
         text(randomWordList[11], imagePosition2.x, imagePosition2.y)
-        text(randomWordList[12], imagePosition3.x, imagePosition3.y)
+        text(randomWordList[12], imagePosition1.x, imagePosition1.y)
+        sprite("Dropbox:imageHint10", WIDTH/2.1, HEIGHT/1.6)
+        wordPosition1 = imagePosition
+        wordPosition2 = imagePosition3
    end
     
     if (levelSelected == 1) and (worldSelected == 2) then
-      text(world2List[1]["word1part1"], imagePosition.x, imagePosition.y)
+      text(world2List[1]["word1part1"], imagePosition3.x, imagePosition3.y)
       text(world2List[1]["word1part2"], imagePosition1.x, imagePosition1.y)
       text(randomWordList[1], imagePosition2.x, imagePosition2.y)
-      text(randomWordList[2], imagePosition3.x, imagePosition3.y)
+      text(randomWordList[2], imagePosition.x, imagePosition.y)
+      wordPosition1 = imagePosition3
+      wordPosition2 = imagePosition1
    end
         
    if (levelSelected == 2) and (worldSelected == 2) then
-      text(world2List[2]["word2part1"], imagePosition.x, imagePosition.y)
+      text(world2List[2]["word2part1"], imagePosition2.x, imagePosition2.y)
       text(world2List[2]["word2part2"], imagePosition1.x, imagePosition1.y)
-      text(randomWordList[3], imagePosition2.x, imagePosition2.y)
+      text(randomWordList[3], imagePosition.x, imagePosition.y)
       text(randomWordList[4], imagePosition3.x, imagePosition3.y)
+      wordPosition1 = imagePosition2
+      wordPosition2 = imagePosition1
    end 
     
    if (levelSelected == 3) and (worldSelected == 2) then
@@ -418,13 +450,17 @@ function MainGameScene:draw()
        text(world2List[3]["word3part2"], imagePosition1.x, imagePosition1.y)
        text(randomWordList[5], imagePosition2.x, imagePosition2.y)
        text(randomWordList[6], imagePosition3.x, imagePosition3.y)
+       wordPosition1 = imagePosition
+       wordPosition2 = imagePosition1
    end
     
    if (levelSelected == 4) and (worldSelected == 2) then
-        text(world2List[4]["word4part1"], imagePosition.x, imagePosition.y)
-        text(world2List[4]["word4part2"], imagePosition1.x, imagePosition1.y)
-        text(randomWordList[7], imagePosition2.x, imagePosition2.y)
-        text(randomWordList[8], imagePosition3.x, imagePosition3.y)
+        text(world2List[4]["word4part1"], imagePosition1.x, imagePosition1.y)
+        text(world2List[4]["word4part2"], imagePosition3.x, imagePosition3.y)
+        text(randomWordList[7], imagePosition.x, imagePosition.y)
+        text(randomWordList[8], imagePosition2.x, imagePosition2.y)
+        wordPosition1 = imagePosition1
+        wordPosition2 = imagePosition3
    end
 
    if (levelSelected == 5) and (worldSelected == 2) then
@@ -432,5 +468,7 @@ function MainGameScene:draw()
         text(world2List[5]["word5part2"], imagePosition1.x, imagePosition1.y)
         text(randomWordList[1], imagePosition2.x, imagePosition2.y)
         text(randomWordList[2], imagePosition3.x, imagePosition3.y)
+        wordPosition1 = imagePosition
+        wordPosition2 = imagePosition1
    end
 end

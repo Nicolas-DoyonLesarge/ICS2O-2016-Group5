@@ -35,7 +35,7 @@ function WorldSelectScene:draw()
     -- Codea does not automatically call this method
     
     background(255, 255, 255, 255)
-    sprite("Dropbox:worldSelectBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
+    --sprite("Dropbox:worldSelectBackground", WIDTH/2, HEIGHT/2, WIDTH, HEIGHT)
     
     font("Arial-ItalicMT")
     fontSize(50)
